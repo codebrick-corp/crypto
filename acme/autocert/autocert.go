@@ -668,6 +668,8 @@ func (m *Manager) authorizedCert(ctx context.Context, key crypto.Signer, ck cert
 		}
 		der, _, err := client.CreateCert(ctx, csr, 0, true)
 		if err != nil {
+			fmt.Println(ck.domain)
+			fmt.Println(err)
 			return nil, nil, err
 		}
 		chain = der
@@ -679,6 +681,8 @@ func (m *Manager) authorizedCert(ctx context.Context, key crypto.Signer, ck cert
 		}
 		der, _, err := client.CreateOrderCert(ctx, o.FinalizeURL, csr, true)
 		if err != nil {
+			fmt.Println(ck.domain)
+			fmt.Println(err)
 			return nil, nil, err
 		}
 		chain = der
